@@ -34,29 +34,171 @@ body{
 
 main{
     height: 100dvh;
-    padding-top: 90px;
 }
 
 .turn{
-    background: red;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    color: #e9f007;
     grid-column: span 2;
+    gap: 20px;
 }
-
+@keyframes turn-text-animation {
+    0% {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+        transform: translateX(0);
+    }
+}
+.turn p{
+    font-size: 14px;
+    animation: 0.6s ease-in-out turn-text-animation;
+}
+@keyframes turn-icon-animation{
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.turn i{
+    font-size:  1.8rem;
+    animation: 0.6s ease-in-out turn-icon-animation;
+}
+.fa-times{
+    color: #ffffff;
+}
+.fa-circle-o{
+    color: #e9f007;
+}
 .square{
-    background: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    border: 1px solid rgba(211, 211, 211, 0.4) !important;
+    border-radius: 10px;
 }
-
+.square:hover{
+    cursor: pointer;
+    opacity: 90%;
+}
 .score{
-    background: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    border-radius: 10px;
+    color: #e9f007;
+    border: 1px solid rgba(211, 211, 211, 0.4) !important;
+}
+.score p{
+    font-size: 14px;
+    font-weight: 600;
+}
+.score span{
+    font-size: 12px;
+    margin-top: 2px;
+}
+.menu{
+    position: relative;
+    gap: 5px;
+    border: 1px solid transparent;
+}
+.menuBtn{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    color: #ffffff;
+    background: rgba(211, 211, 211, 0.05);
+}
+button:hover{
+    cursor: pointer;
+    opacity: 90%;
+}
+.menu .items{
+    position: absolute;
+    z-index: 10;
+    top: 50px;
+    right: 0;
+    background: #203139;
+    border-radius: 10px;
+    padding: 0;
+    background: turquoise;
+}
+.items button:hover{
+    background: #1413133a;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.items button{
+    background: transparent;
+    color: #121212;
+    width: 100%;
+    text-align: left;
+    padding: 8px 5px;
+}
+.modal{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.6);
+    z-index: 20;
+    font-size: 1.5rem;
+}
+.modal-contents {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+    color: #ffffff;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    gap: 10px;
+    border: 1px solid rgb(211, 211, 211) !important;
+
+}
+.modal-contents button{
+    padding: 10px;
+    background: turquoise;
+    border-radius: 3px;
+    color: #2a4544;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
-.actions{
-    background: purple;
+.hidden{
+    display: none; 
+}
+.shadow{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
 }
 
+.border{
+    border: 1px solid rgba(211, 211, 211, 0.4) !important;
+}
+/**Footer styles**/
 footer{
     width: 100%;
-    color: #fff;
+    color: #d3d3d3;
     padding: 10px;
     border-top: 1px solid var(--gray);
     line-height: 1.4;
@@ -68,12 +210,32 @@ footer p{
 
 }
 
-.fa{
+.fa-github{
     font-size: 30px;
+    color: #d3d3d3;
+    font-weight: 800;
+    border-radius: 50%;
 }
 
 footer a{
     text-decoration-line: none;
-    color: #d3d3d3;
+    color: #e9f007;
     padding: 5px;
+}
+
+@media (min-width: 768px){
+    .grid{
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: 50px repeat(3, 100px) 60px;
+        gap: 10px;
+    }
+
+    main{
+        border: 1px solid #d3d3d31c;
+        margin: 10px 0;
+        border-radius: 5px;
+}
 }

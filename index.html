@@ -8,28 +8,62 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <main>
+    <main class="shadow">
       <div class="grid">
-        <div class="turn" data-id="turn"></div>
-        <div class="actions" data-id="actions"></div>
-        <div class="menu"></div>
-        <div id="1" class="square shadow"></div>
-        <div id="2" class="square shadow"></div>
-        <div id="3" class="square shadow"></div>
-        <div id="4" class="square shadow"></div>
-        <div id="5" class="square shadow"></div>
-        <div id="6" class="square shadow"></div>
-        <div id="7" class="square shadow"></div>
-        <div id="8" class="square shadow"></div>
-        <div id="9" class="square shadow"></div>
-        <div class="score shadow"></div>
-        <div class="score shadow"></div>
-        <div class="score shadow"></div>
+
+        <!--Turn indicator-->
+        <div class="turn" data-id="turn">
+          <i class="fa fa-times" id="player" aria-hidden="true"></i>
+          <p id="indicator">Player 1, Your turn!</p>
+        </div>
+
+        <!--Menu-->
+        <div class="menu" data-id="actions">
+          <button class="menuBtn">Menu <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="items border hidden">
+            <button class="resetBtn" data-id="reset-btn">Reset</button>
+            <button class="newGameBtn" data-id="new-round-btn">New Game</button>
+          </div>
+        </div>
+
+        <!--Game Board-->
+        <div id="1" class="square shadow" data-id="square"></div>
+        <div id="2" class="square shadow" data-id="square"></div>
+        <div id="3" class="square shadow" data-id="square"></div>
+        <div id="4" class="square shadow" data-id="square"></div>
+        <div id="5" class="square shadow" data-id="square"></div>
+        <div id="6" class="square shadow" data-id="square"></div>
+        <div id="7" class="square shadow" data-id="square"></div>
+        <div id="8" class="square shadow" data-id="square"></div>
+        <div id="9" class="square shadow" data-id="square"></div>
+
+        <!--Score Board-->
+        <div class="score shadow">
+          <p>Player 1</p>
+          <span data-id="player1-stats">0 Wins</span>
+        </div>
+        <div class="score shadow">
+          <p>Ties</p>
+          <span data-id="ties">0</span>
+        </div>
+        <div class="score shadow">
+          <p>Player 2</p>
+          <span data-id="player2-stats">0 Wins</span>
+        </div>
       </div>
     </main>
     <footer>
-      <p><a href="https://github.com/nat-Dcoder/Tic-tac-toe"><i class="fa fa-github" aria-hidden="true"></i>&nbsp; Project code here!</a></p>
+      <p><a href="https://github.com/nat-Dcoder/Tic-tac-toe"><i class="fa fa-github shadow" aria-hidden="true"></i>&nbsp; Project codes here!</a></p>
       <p>Designed & Build By Nathaniel Johnson. &copy 2024</p>
     </footer>
+    <!--Modal to display with the game end-->
+    <div class="modal hidden" id="modal">
+      <div class="modal-contents">
+        <p id="modal-contents"></p>
+        <button type="button" id="modal-btn">Play again</button>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
